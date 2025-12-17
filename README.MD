@@ -27,8 +27,8 @@ kits:
         enchantments:
           - "SHARPNESS:1"
         attributes:
-          - "GENERIC_ATTACK_DAMAGE:10:HAND:ADD_NUMBER"
-          - "GENERIC_ATTACK_SPEED:1.7:HAND:ADD_NUMBER"
+          - "ATTACK_DAMAGE:10:HAND:ADD_NUMBER"
+          - "ATTACK_SPEED:1.7:HAND:ADD_NUMBER"
 
       - material: LEATHER_HELMET
         amount: 1
@@ -40,7 +40,7 @@ kits:
         enchantments:
           - "PROTECTION_ENVIRONMENTAL:1"
         attributes:
-          - "GENERIC_ARMOR:5:HEAD:ADD_NUMBER"
+          - "ARMOR:5:HEAD:ADD_NUMBER"
 
       - material: LEATHER_CHESTPLATE
         amount: 1
@@ -52,7 +52,7 @@ kits:
         enchantments:
           - "PROTECTION_ENVIRONMENTAL:1"
         attributes:
-          - "GENERIC_ARMOR:10:CHEST:ADD_NUMBER"
+          - "ARMOR:10:CHEST:ADD_NUMBER"
 
       - material: LEATHER_LEGGINGS
         amount: 1
@@ -64,7 +64,7 @@ kits:
         enchantments:
           - "PROTECTION_ENVIRONMENTAL:1"
         attributes:
-          - "GENERIC_ARMOR:9:LEGS:ADD_NUMBER"
+          - "ARMOR:9:LEGS:ADD_NUMBER"
 
       - material: LEATHER_BOOTS
         amount: 1
@@ -76,7 +76,7 @@ kits:
         enchantments:
           - "PROTECTION_ENVIRONMENTAL:1"
         attributes:
-          - "GENERIC_ARMOR:6:FEET:ADD_NUMBER"
+          - "ARMOR:6:FEET:ADD_NUMBER"
 
       - material: BREAD
         amount: 16
@@ -139,3 +139,70 @@ kits:
     - `MULTIPLY_SCALAR_1`: multiplica por (1 + amount)  
     - `MULTIPLY_SCALAR_2`: multiplica por amount  
   - Lista de atributos: [Spigot Attribute API](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/Attribute.html)
+
+# 🔑 Permisos de MasisoKits
+
+El plugin utiliza un sistema de permisos para controlar el acceso a los kits y a los comandos administrativos.  
+A continuación se detallan todos los permisos disponibles:
+
+---
+
+## 📦 Permisos principales
+
+- **`masisokits.use`**  
+  - **Default:** `true`  
+  - Permite a todos los jugadores usar el comando `/masisokit` y reclamar kits (si tienen permiso específico).
+
+- **`masisokits.reset`**  
+  - **Default:** `op`  
+  - Permite a los operadores resetear el cooldown de un kit para un jugador.  
+  - Comando: `/masisokit reset <jugador> <kit>`
+
+- **`masisokits.reload`**  
+  - **Default:** `op`  
+  - Permite a los operadores recargar la configuración del plugin.  
+  - Comando: `/masisokit reload`
+
+---
+
+## 🎯 Permisos por kit
+
+- **`masisokits.kit.<nombre>`**  
+  - **Default:** `false`  
+  - Permite reclamar un kit específico.  
+  - Ejemplo:  
+    - `masisokits.kit.bronce` → habilita el kit **bronce**.  
+    - `masisokits.kit.plata` → habilita el kit **plata**.  
+
+- **`masisokits.kit.*`**  
+  - **Default:** `false`  
+  - Permite reclamar **todos los kits** disponibles.
+
+---
+
+## 📌 Notas
+
+- Los permisos se pueden gestionar con cualquier sistema de permisos (ej: LuckPerms).  
+- `masisokits.use` es obligatorio para que el jugador pueda ejecutar `/masisokit`.  
+- El acceso a cada kit se controla con `masisokits.kit.<nombre>`.  
+- El permiso `masisokits.kit.*` otorga acceso global a todos los kits.  
+- Los permisos de administración (`reset` y `reload`) deben reservarse para staff u operadores.
+
+---
+
+## 🛠 Ejemplo en LuckPerms
+
+```yaml
+# Grupo Novato: solo acceso al kit bronce
+- masisokits.use
+- masisokits.kit.bronce
+
+# Grupo VIP: acceso a todos los kits
+- masisokits.use
+- masisokits.kit.*
+
+# Administrador: acceso completo
+- masisokits.use
+- masisokits.kit.*
+- masisokits.reset
+- masisokits.reload

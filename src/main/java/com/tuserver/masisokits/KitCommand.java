@@ -44,6 +44,13 @@ public class KitCommand implements CommandExecutor {
             return true;
         }
 
+        // 🔑 Verificación de permiso dinámico
+        String permission = "masisokits.kit." + kitName.toLowerCase();
+        if (!p.hasPermission(permission)) {
+            p.sendMessage("§cNo tienes permiso para reclamar el kit " + kitName + ".");
+            return true;
+        }
+
         // Cooldown
         int delay = kit.getInt("delay", 0);
         long now = System.currentTimeMillis();
@@ -83,7 +90,7 @@ public class KitCommand implements CommandExecutor {
         List<String> commands = kit.getStringList("left_click_commands");
         for (String raw : commands) {
             String parsed = raw.replace("%player_name%", p.getName())
-                            .replace("%player_uuid%", p.getUniqueId().toString());
+                               .replace("%player_uuid%", p.getUniqueId().toString());
 
             if (parsed.startsWith("[console]")) {
                 String cmd = parsed.replace("[console]", "").trim();
@@ -92,11 +99,9 @@ public class KitCommand implements CommandExecutor {
                 String cmd = parsed.replace("[player]", "").trim();
                 p.performCommand(cmd);
             } else {
-                // Por defecto, consola
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), parsed);
             }
         }
-
 
         // Dar ítems
         @SuppressWarnings("unchecked")

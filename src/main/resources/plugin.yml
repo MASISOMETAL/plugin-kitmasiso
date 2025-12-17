@@ -1,6 +1,6 @@
 name: Masisokits
 main: com.tuserver.masisokits.MasisoKits
-version: 1.0.8
+version: 1.0.9
 api-version: 1.20
 author: Cristian
 
@@ -17,3 +17,6 @@ permissions:
     default: op
   masisokits.reload:
     default: op
+  masisokits.kit.*:
+    description: Permite reclamar cualquier kit
+    default: false
