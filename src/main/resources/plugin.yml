@@ -1,0 +1,19 @@
+name: Masisokits
+main: com.tuserver.masisokits.MasisoKits
+version: 1.0.8
+api-version: 1.20
+author: Cristian
+
+commands:
+  masisokit:
+    description: Comando principal de MasisoKits
+    usage: /masisokit <subcomando>
+    permission: masisokits.use
+
+permissions:
+  masisokits.use:
+    default: true
+  masisokits.reset:
+    default: op
+  masisokits.reload:
+    default: op

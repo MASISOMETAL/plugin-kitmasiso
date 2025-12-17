@@ -1,0 +1,15 @@
+# Ignorar archivos compilados
+*.class
+
+# Ignorar directorios de dependencias
+node_modules/
+vendor/
+
+# Ignorar archivos temporales
+*.log
+*.tmp
+
+# Ignorar configuraciones locales
+.env
+
+target/

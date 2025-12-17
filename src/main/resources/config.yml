@@ -1,0 +1,75 @@
+kits:
+  bronce:
+    delay: 60
+    cost: 0.0
+    money: 0.0
+    left_click_commands:
+      - "[console] say %player_name% ha reclamado el kit bronce"
+    items:
+      - material: WOODEN_SWORD
+        amount: 1
+        name: "&l&aESPADA DE NOVATO"
+        lore:
+          - "&8Kit Bronce"
+          - " "
+          - "&24 Daño por golpe"
+          - "&21.6 Velocidad de ataque"
+        enchantments:
+          - "SHARPNESS:1"
+        attributes:
+          - "ATTACK_DAMAGE:3:HAND:ADD_NUMBER"
+          - "ATTACK_SPEED:0.1:HAND:ADD_NUMBER"
+
+      - material: LEATHER_HELMET
+        amount: 1
+        name: "&l&aCASCO DE NOVATO"
+        lore:
+          - "&8Kit Bronce"
+          - " "
+          - "&9Armadura: +1"
+        enchantments:
+          - "PROTECTION:1"
+        attributes:
+          - "ARMOR:1:HEAD:ADD_NUMBER"
+
+      - material: LEATHER_CHESTPLATE
+        amount: 1
+        name: "&l&aPECHERA DE NOVATO"
+        lore:
+          - "&8Kit Bronce"
+          - " "
+          - "&9Armadura: +3"
+        enchantments:
+          - "PROTECTION:1"
+        attributes:
+          - "ARMOR:1:CHEST:ADD_NUMBER"
+
+      - material: LEATHER_LEGGINGS
+        amount: 1
+        name: "&l&aPANTALON DE NOVATO"
+        lore:
+          - "&8Kit Bronce"
+          - " "
+          - "&9Armadura: +2"
+        enchantments:
+          - "PROTECTION:1"
+        attributes:
+          - "ARMOR:1:LEGS:ADD_NUMBER"
+
+      - material: LEATHER_BOOTS
+        amount: 1
+        name: "&l&aBOTAS DE NOVATO"
+        lore:
+          - "&8Kit Bronce"
+          - " "
+          - "&9Armadura: +1"
+        enchantments:
+          - "PROTECTION:1"
+        attributes:
+          - "ARMOR:1:FEET:ADD_NUMBER"
+
+      - material: BREAD
+        amount: 16
+        name: "&l&aRACIÓN DE SUPERVIVENCIA"
+        lore:
+          - "&8Kit Bronce"
